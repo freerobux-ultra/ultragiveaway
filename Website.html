@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robux Giveaway</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a1a2e;
+            color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: #1c2a3d;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #007BFF;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #f4f4f9;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: 2px solid #007BFF;
+            outline: none;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            background-color: #1c2a3d;
+            color: #f4f4f9;
+        }
+
+        input:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .submit-btn {
+            padding: 15px 20px;
+            background-color: #00C853;
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+
+        .confirmation {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .confirmation p {
+            font-size: 20px;
+            color: #f4f4f9;
+        }
+
+        .confirmation .link {
+            padding: 15px 20px;
+            background-color: #00C853;
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .confirmation .link:hover {
+            background-color: #388e3c;
+        }
+
+        .notification {
+            position: fixed;
+            top: 10px;
+            right: -400px;
+            background-color: #00C853;
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease-out forwards;
+            transition: right 0.5s ease-out;
+            margin-bottom: 20px;
+        }
+
+        @keyframes slideIn {
+            0% {
+                right: -400px;
+            }
+            100% {
+                right: 20px;
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .step {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #f4f4f9;
+        }
+
+        .step a {
+            color: #00C853;
+            text-decoration: none;
+        }
+
+        .step a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Robux Giveaway</h1>
+        <label for="username">Enter Your Roblox Username:</label>
+        <input type="text" id="username" placeholder="Enter username" required>
+        <button class="submit-btn" onclick="processUsername()">Submit</button>
+
+        <div class="confirmation" id="confirmation">
+            <p>Thank you for entering! Please complete the following steps:</p>
+            <div class="step">
+                <p>Step 1: <a href="https://www.youtube.com/@Axlcyh" target="_blank">Subscribe and Like the Stream</a></p>
+                <p>Step 2: <a href="https://www.roblox.com/communities/35386118/Not-aliboo#!/about" target="_blank">Join the Roblox Group</a></p>
+                <p>Step 3: <strong>Click the button below to get Robux by using the app "It Pays to Walk".</strong></p>
+            </div>
+            <a href="https://swcapp.com/hi/not_aliboo" class="link" target="_blank">Get Paid to Walk</a>
+        </div>
+    </div>
+
+    <script>
+        // Huge list of random names for greater variety
+        const randomNames = [
+            "Player123", "GamerX", "RobloxMaster", "LuckyBot", "MegaRobuxFan", "EpicGamer01", 
+            "RobuxKing", "Xx_Pro_Player_xX", "UltraBot", "RoboRuler", "ShadowPlayer", "ThunderX", 
+            "SuperRobloxFan", "GamingMaster456", "BotGamer", "MightyPlayerX", "NoobHunter01", 
+            "MegaEpicRoblox", "UltraGamer9000", "VIPBot", "ProPlayer123", "BigRobuxGuy", "TopGamerX", 
+            "RobloxGamerXx", "DarkLordBot", "ProPlayerElite", "KingRobuxMan", "MegaPlayerUltra", 
+            "LordOfRoblox", "EpicRobuxMaster", "VortexGamer", "RoboMasterX", "TheGreatGamer", 
+            "SuperRobloxHero", "KingOfGames", "ElitePlayer123", "BotEpicWinner", "RoboChampion", 
+            "ShadowProPlayer", "MegaGamerBot", "LuckyMaster01", "RealDealGamer", "TheChosenPlayer", 
+            "XxRobuxKingxX", "EpicMaster3000", "FuriousGamerX", "ProNoobX", "RoboNinja", "GamerTitanX", 
+            "EliteBot9000", "MaximusPlayer", "ProKingRoblox", "TheGamingTitan", "UltimateGamer99", 
+            "RobloxEliteX", "SkyGamer3000", "GamerLegend500", "PowerfulPlayerX", "MightyBotGamer", 
+            "RobloxNinjaPro", "TheUltimatePlayer", "SuperBotMaster", "ProRobloxian", "KingGamerXx", 
+            "MaxPowerRobux", "MegaPlayerBot", "RoboTornado", "UltraKingRobux", "MasterGamer500", 
+            "RoboLegend", "TheGamerLord", "KingOfRobux", "RobloxManiacX", "GamerXMaster", 
+            "SuperRobloxKing", "TheRealGamerXx", "GamingProXx", "LuckyBotPro", "MightyProGamer", 
+            "EpicRobloxian", "ShadowMasterBot", "TheEliteGamer", "MaxGamingKing", "GamingMaster999", 
+            "XxUltimateGamerXx", "ProGamerLegend", "BotGamerMaster", "RobuxRuler", "ChampionGamerX", 
+            "TheMegaGamerX", "ProEliteBot", "RoboMaster500", "LegendaryRobuxMan", "EpicXGaming", 
+            "UltimateProBot", "MightyGamerX", "PowerfulBotXx", "GamerX_3000", "SuperEpicPlayer", 
+            "RobuxMasterKing", "LegendaryProPlayer", "GamerKingOfRoblox", "RobloxEpicBot", 
+            "EliteProGamerBot", "ProMasterRobux", "GamerBotXtreme", "RobuxEmpire", "XxGamingProXx"
+        ];
+
+        function processUsername() {
+            const username = document.getElementById('username').value;
+            if (!username) {
+                alert("Please enter a username!");
+                return;
+            }
+
+            setTimeout(() => {
+                document.getElementById('confirmation').style.display = 'block';
+                document.getElementById('username').disabled = true;
+            }, 500);
+
+            startBotLoop();
+        }
+
+        function getRandomName() {
+            const shuffledNames = randomNames.sort(() => Math.random() - 0.5);
+            return shuffledNames[0];
+        }
+
+        function startBotLoop() {
+            setInterval(() => {
+                const botName = getRandomName();
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.innerHTML = `${botName} just received Robux!`;
+
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.animation = 'fadeOut 1s forwards';
+                    setTimeout(() => notification.remove(), 1000);
+                }, 4000);
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
